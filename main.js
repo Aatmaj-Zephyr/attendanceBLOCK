@@ -1,5 +1,5 @@
 let html5QrcodeScanner ;
-let id=16010121110
+
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     console.log(`Code matched = ${decodedText}`, decodedResult);
@@ -7,7 +7,7 @@ function onScanSuccess(decodedText, decodedResult) {
     window.sessionStorage.setItem("Result", decodedResult);
  
     //stop scanning
-    html5QrCode.stop();
+    
     window.location.href="./qr.html"
     
 
