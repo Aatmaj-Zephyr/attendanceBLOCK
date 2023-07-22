@@ -4,7 +4,13 @@ function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     console.log(`Code matched = ${decodedText}`, decodedResult);
     window.alert(decodedText);
-    var qrcode = new QRCode("qrcode",  decodedText+""+id);	
+    window.sessionStorage.setItem("Result", decodedResult);
+ 
+    //stop scanning
+    html5QrCode.stop();
+    window.location.href="./qr.html"
+    
+
   }
   
   function onScanFailure(error) {
@@ -14,7 +20,7 @@ function onScanSuccess(decodedText, decodedResult) {
   }
   
   document.getElementById("scanButton").addEventListener("click", function () {
- 
+
     // Ensure that html5QrcodeScanner is initialized before calling render
     if (html5QrcodeScanner) {
       html5QrcodeScanner.render(onScanSuccess, onScanFailure);
@@ -27,10 +33,10 @@ function onScanSuccess(decodedText, decodedResult) {
 
 
   window.onload = function() { //default running
-  
+    
      html5QrcodeScanner = new Html5QrcodeScanner(
         "reader",
-        { fps: 10, qrbox: {width: 500, height: 500} },
+        { fps: 10, qrbox: {width: 500, height: 500} , facingmode:"environment"},
         /* verbose= */ false
       );
     
