@@ -36,7 +36,7 @@ function onScanSuccess(decodedText, decodedResult) {
     
      html5QrcodeScanner = new Html5QrcodeScanner(
         "reader",
-        { fps: 10, qrbox: {width: 500, height: 500} , facingmode:"environment"},
+        { fps: 15, qrbox: {width: 400, height: 400} , facingmode:"environment"},
         /* verbose= */ false
       );
     
