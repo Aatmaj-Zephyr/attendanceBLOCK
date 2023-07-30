@@ -8,15 +8,21 @@ window.onload = function(){
     var Attendance = codes[1].trim();
     const timeStamp = codes[2].trim(); //not used for now
 
-    var currentTime = Date.now();
+    
     
     Attendance = convertBase(""+Attendance,64,11) + "a" + id;  // a is seperator
     Attendance = convertBase(Attendance,11,64);
    
 
+    setInterval(function(){
+    var currentTime = Date.now();
     var newText = facultyName + ";" + Attendance + ";" + currentTime;
+    document.getElementById("qrcode").innerHTML=""; //clear QR code
+
 
     var qrcode = new QRCode("qrcode",  {text:""+newText,width:512,height:512,correctLevel :QRCode.CorrectLevel.H});	
+
+    },2000);//refresh every 2 seconds
 
 }
 
